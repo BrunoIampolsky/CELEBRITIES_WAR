@@ -209,6 +209,7 @@ def battleloop(x,y,width,height,inactive1,active1,i, action1, habi):
     gameDisplay.blit(vs,(600,50,118,81))
     gameDisplay.blit(jogadores2[carta],(10+315+10+315+10+10+315,50,315,516))
     gameDisplay.blit(cat,(400,200,232,48))
+    gameDisplay.blit(pygame.image.load("sair.jpg"),(700,600,98,39))
     while battle == False:
         
         p=cartajogada()
@@ -330,6 +331,7 @@ def fim():
     global pcom
     global comm
     global usum
+    gameDisplay.blit(pygame.image.load("sair.jpg"),(700,600,98,39))
     while battle == False:
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
@@ -383,9 +385,11 @@ def gameloop():
             cont+=1
         del usu[o]
     ii=0
+    gameDisplay.blit(pygame.image.load("sair.jpg"),(700,600,98,39))
     while battle == False:
         
         for event in pygame.event.get():
+            sair(700,600,98,39,black,pygame.image.load("sair.jpg"))
             if ii==0:
                 gameDisplay.blit(pygame.image.load("AZUL.jpg"),(0,0,1310,670))
                 ii=1
@@ -404,7 +408,6 @@ def gameloop():
                 else:
                     button1(10+315+10+315+10+10+315,50,315,516,black,jogadores2[i],i, i)
                 cont+=1
-            sair(700,600,98,39,black,pygame.image.load("sair.jpg"))
 def start():
             global habi
             global valor
@@ -521,15 +524,15 @@ def inicio(x,y,width,height,active1):
             start()
     else:
         gameDisplay.blit(pygame.image.load("iniciar.jpg"),(111,111,543,69))
-        
-def ini():
-    battle=False
+    pygame.display.update()
+def inicior():
+    battle = False
     while battle == False:
+        
         for event in pygame.event.get():
-            
             if event.type==pygame.QUIT:
                 pygame.quit()
             sair(700,600,98,39,black,pygame.image.load("sair.jpg"))
             inicio(111,111,543,69,pygame.image.load("iniciar.jpg"))
 gameDisplay.fill(white)
-ini()
+inicior()
